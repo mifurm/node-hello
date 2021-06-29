@@ -24,6 +24,8 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.0'                # set this to the node version to use
   AZURE_PUB_PROFILE: ''
+  ENV_TEST: 'test'
+  ENV_RUN: 'RUN'
 
 jobs:
   build-and-deploy:
@@ -52,5 +54,5 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: cleanup resources
-      run: 
-        echo ${{ env.AZURE_PUB_PROFILE }}
+      run: echo $AZURE_PUB_PROFILE
+      run: echo $TEST
