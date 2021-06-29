@@ -54,5 +54,6 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: cleanup resources
-      run: echo $AZURE_PUB_PROFILE
-      run: echo $TEST
+      run: |
+        echo $AZURE_PUB_PROFILE
+        echo $TEST
