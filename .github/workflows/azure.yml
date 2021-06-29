@@ -27,6 +27,7 @@ env:
   AZURE_PUB_PROFILE: ''
   ENV_TEST: 'test'
   ENV_RUN: 'RUN'
+  JSON: ${{ toJson(github) }}
 
 jobs:
   build-and-deploy:
@@ -56,5 +57,5 @@ jobs:
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: cleanup resources
       run: |
-        echo $AZURE_PUB_PROFILE
         echo $ENV_TEST
+        echo $JSON
